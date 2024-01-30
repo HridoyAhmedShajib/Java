@@ -1,49 +1,46 @@
 import java.util.Scanner;
 
-public class Reverse {
-    // Member variable
-    int number;
+class Reverse {
+    int value;
 
-    // Default constructor
-    public Reverse() {
-        // Initialize number to 0 or any default value
-        this.number = 0;
+    Reverse() {
+        value = 123;
     }
 
-    // Parameterized constructor
-    public Reverse(int number) {
-        this.number = number;
+    Reverse(int value) {
+        this.value = value;
     }
 
-    // Function to get input from the keyboard
-    public void getInput() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter an integer: ");
-        this.number = scanner.nextInt();
+    void getInput() {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        value = a;
     }
 
-    // Function to reverse the integer
-    public void doReverse() {
-        int reversedNumber = 0;
-        int originalNumber = this.number;
+    void doReverse() {
+        int reversed = 0;
+        int original = value;
 
-        while (originalNumber != 0) {
-            int digit = originalNumber % 10;
-            reversedNumber = reversedNumber * 10 + digit;
-            originalNumber /= 10;
+        while (original > 0) {
+            int digit = original % 10;
+            reversed = reversed * 10 + digit;
+            original /= 10;
         }
 
-        System.out.println("Reversed number: " + reversedNumber);
+        System.out.println("Reverse: " + reversed);
     }
+}
 
+class HelloWorld {
     public static void main(String[] args) {
-        // Create an instance of the Reverse class
-        Reverse reverseObj = new Reverse();
+        Reverse r = new Reverse();
+        Reverse p = new Reverse();
 
-        // Get input from the user
-        reverseObj.getInput();
+        System.out.println("Default Reverse:");
+        r.doReverse();
 
-        // Reverse the number and print the result
-        reverseObj.doReverse();
+        System.out.println("Enter a number: ");
+        p.getInput();
+        p.doReverse();
     }
 }
